@@ -113,7 +113,7 @@ d3.csv("global_waste_statistics_redux.csv", function(error, data) {
                 .style("opacity", .9);      
             div .html(				
                     d.id + "<br/>" +
-                    "Population: " + data[i].country + "<br/>" +
+                    "Country: " + data[i].country + "<br/>" +
                     "Waste: " + data[i].waste + "<br/>"  +
                     "WPC: "+ data[i].wpc		 
                  )  
