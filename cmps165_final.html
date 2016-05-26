@@ -67,13 +67,13 @@ var svg = d3.select("body").append("svg")
     var div = d3.select("body").append("div")   
     .attr("class", "tooltip")               
     .style("opacity", 0);	
-/*
+
 svg.append("path")
     .datum(graticule)
     .attr("class", "graticule")
     .attr("d", path);
-*/
-	 svg.append("rect")
+
+svg.append("rect")
     .attr("width", width)
     .attr("height", height)
 	.attr("fill", "#eeeeee");
@@ -121,7 +121,7 @@ d3.csv("global_waste_statistics_redux.csv", function(error, data) {
                 .style("opacity", .9);      
             div .html(				
                     d.id + "<br/>" +
-                    "Population: " + data[i].country + "<br/>" +
+                    "Country: " + data[i].country + "<br/>" +
                     "Waste: " + data[i].waste + "<br/>"  +
                     "WPC: "+ data[i].wpc		 
                  )  
