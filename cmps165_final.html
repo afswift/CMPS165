@@ -64,14 +64,14 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 	
-    var div = d3.select("body").append("div")   
+var div = d3.select("body").append("div")   
     .attr("class", "tooltip")               
     .style("opacity", 0);	
 
-svg.append("path")
-    .datum(graticule)
-    .attr("class", "graticule")
-    .attr("d", path);
+//svg.append("path")
+//    .datum(graticule)
+//    .attr("class", "graticule")
+//    .attr("d", path);
 
 svg.append("rect")
     .attr("width", width)
