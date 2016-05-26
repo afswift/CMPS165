@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+    
+.country {
+  fill: #ccc;
+  stroke: #fff;
+  stroke-width: .5px;
+  stroke-linejoin: round;
+}
+
+.graticule {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .3;
+  stroke-width: .5px;
+}
+
+.graticule.outline {
+  stroke: #333;
+  stroke-opacity: 1;
+  stroke-width: 1.5px;
+}
+	
+div.tooltip {	
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    font-size: 10px;
+    background-color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    pointer-events: none;		
+}
+    
+</style>
+
+<body>
+	<h1 style = "text-align:center; color:steelblue; font-family:verdana "><bold> World Wide Waste </bold></h1>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script>
+var width = 960,
+    height = 500;
+
+var projection = d3.geo.kavrayskiy7(),
+    color = d3.scale.category20(),
+    graticule = d3.geo.graticule();
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+	
+    var div = d3.select("body").append("div")   
+    .attr("class", "tooltip")               
+    .style("opacity", 0);	
+/*
+svg.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path);
+*/
+svg.append("path")
+    .datum(graticule.outline)
+    .attr("class", "graticule outline")
+    .attr("d", path);
+
+d3.csv("global_waste_statistics_redux.csv", function(error, data) {
+    data.forEach(function(d) {
+        d.country = d.country;
+        d.id = +d.id;
+        d.income = d.income;
+        d.region = d.region;  
+        d.population = +d.population;
+        d.wpc = +d.wpc;
+        d.waste = d.waste;	
+        d.future_pop = +d.future_pop;
+        d.future_urban_pop = +d.future_urban_pop;
+        d.future_wpc = +d.future_wpc;
+        d.future_waste = +d.future_waste;
+        d.organic = +d.organic;
+        d.paper = +d.paper;
+        d.plastic = +d.plastic;
+        d.glass = +d.glass;
+        d.metal = +d.metal;
+        d.other = +d.other;
+    });
+    console.log(data);
+    
+    d3.json("world-110m.json", function(error, world) {
+      var countries = topojson.feature(world, world.objects.countries).features,
+          neighbors = topojson.neighbors(world.objects.countries.geometries);
+
+    svg.selectAll(".country")
+        .data(countries)
+        .enter().insert("path", ".graticule")
+        .attr("class", "country")
+        .attr("d", path)
+        .style("fill", function(d, i) { 
+            return color(d.color = d3.max(neighbors[i], function(n) { return countries[n].color; }) + 1 | 0); })
+        .on("mouseover", function(d, i, test) {
+            div.transition()        
+                .duration(200)      
+                .style("opacity", .9);      
+            div .html(				
+                    d.id + "<br/>" +
+                    "Population: " + data[i].country + "<br/>" +
+                    "Waste: " + data[i].waste + "<br/>"  +
+                    "WPC: "+ data[i].wpc		 
+                 )  
+                .style("left", (d3.event.pageX) + "px")     
+                .style("top", (d3.event.pageY - 28) + "px");
+        })             
+        .on("mouseout", function(d) {
+            div .transition()		
+                .duration(500)		
+                .style("opacity", 0);	
+        });
+    });
+});
+
+</script>
