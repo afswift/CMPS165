@@ -3,7 +3,7 @@
 <style>
     
 body {
-    background-color: #eeeeee;
+    background-color: #ffffff;
 }
 	
 .country {
@@ -45,7 +45,7 @@ div.tooltip {
 </style>
 
 <body>
-	<h1 style = "text-align:center; color:steelblue; font-family:verdana "><bold> World Wide Waste </bold></h1>
+	<h1 style = "text-align:center; color:steelblue; font-family:verdana "><bold> World Wide Waster </bold></h1>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
@@ -53,7 +53,7 @@ div.tooltip {
 var width = 960,
     height = 500;
 
-var projection = d3.geo.kavrayskiy7(),
+var projection = d3.geo.equirectangular(),
     color = d3.scale.category20(),
     graticule = d3.geo.graticule();
 
@@ -76,7 +76,7 @@ svg.append("path")
 	 svg.append("rect")
     .attr("width", width)
     .attr("height", height)
-	.attr("fill", "#eeeeee");
+	.attr("fill", "#fff");
 svg.append("path")
     .datum(graticule.outline)
     .attr("class", "graticule outline")
