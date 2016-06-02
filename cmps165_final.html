@@ -64,16 +64,16 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 	
-var div = d3.select("body").append("div")   
+    var div = d3.select("body").append("div")   
     .attr("class", "tooltip")               
     .style("opacity", 0);	
-
-//svg.append("path")
-//    .datum(graticule)
-//    .attr("class", "graticule")
-//    .attr("d", path);
-
-svg.append("rect")
+/*
+svg.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path);
+*/
+	 svg.append("rect")
     .attr("width", width)
     .attr("height", height)
 	.attr("fill", "#eeeeee");
@@ -104,26 +104,32 @@ d3.csv("global_waste_statistics_redux.csv", function(error, data) {
     });
     console.log(data);
     
-    d3.json("world-110m.json", function(error, world) {
-      var countries = topojson.feature(world, world.objects.countries).features,
-          neighbors = topojson.neighbors(world.objects.countries.geometries);
-
+    d3.json("final.json", function(error, world) {
+      var countries = topojson.feature(world, world.objects.countries).features;
+           //neighbors = topojson.neighbors(world.objects.countries.geometries);
+console.log(countries);
     svg.selectAll(".country")
         .data(countries)
         .enter().insert("path", ".graticule")
         .attr("class", "country")
         .attr("d", path)
-        .style("fill", function(d, i) { 
-            return color(d.color = d3.max(neighbors[i], function(n) { return countries[n].color; }) + 1 | 0); })
+        //.style("fill", function(d, i) { 
+        //    return color(d.color = d3.max(neighbors[i], function(n) { return countries[n].color; }) + 1 | 0); })
         .on("mouseover", function(d, i, test) {
             div.transition()        
                 .duration(200)      
                 .style("opacity", .9);      
             div .html(				
                     d.id + "<br/>" +
-                    "Country: " + data[i].country + "<br/>" +
-                    "Waste: " + data[i].waste + "<br/>"  +
-                    "WPC: "+ data[i].wpc		 
+                    "Population: " + d.properties.population + "<br/>" +
+                    "Waste: " + d.properties.waste + "<br/>"  +
+                    "WPC: "+ d.properties.wpc  + "<br/>"  +	 
+				 "Organic: "+ d.properties.organic  + "<br/>"  +
+				 "Paper: "+ d.properties.paper  + "<br/>"  +
+				 "Plastic: "+ d.properties.plastic  + "<br/>"  +
+				 "Glass: "+ d.properties.glass  + "<br/>"  +
+				 "Metal: "+ d.properties.metal  + "<br/>"  +
+				"Other: "+ d.properties.other 
                  )  
                 .style("left", (d3.event.pageX) + "px")     
                 .style("top", (d3.event.pageY - 28) + "px");
