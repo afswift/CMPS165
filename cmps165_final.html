@@ -7,23 +7,23 @@ body {
 }
 	
 .country {
-  fill: #ccc;
-  stroke: #fff;
-  stroke-width: .5px;
-  stroke-linejoin: round;
+    fill: #ccc;
+    stroke: #fff;
+    stroke-width: .5px;
+    stroke-linejoin: round;
 }
 
 .graticule {
-  fill: none;
-  stroke: #000;
-  stroke-opacity: .3;
-  stroke-width: .5px;
+    fill: none;
+    stroke: #000;
+    stroke-opacity: .3;
+    stroke-width: .5px;
 }
 
 .graticule.outline {
-  stroke: #333;
-  stroke-opacity: 1;
-  stroke-width: 1.5px;
+    stroke: #333;
+    stroke-opacity: 1;
+    stroke-width: 1.5px;
 }
 	
 div.tooltip {	
@@ -45,7 +45,7 @@ div.tooltip {
 </style>
 
 <body>
-	<h1 style = "text-align:center; color:steelblue; font-family:verdana "><bold> World Wide Waster </bold></h1>
+<h1 style = "text-align:center; color:steelblue; font-family:verdana "><bold> World Wide Waster </bold></h1>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
@@ -53,18 +53,49 @@ div.tooltip {
 var width = 960,
     height = 500;
 
-var projection = d3.geo.equirectangular(),
+var projection = d3.geo.equirectangular()
+        .scale(150)
+        .translate([width/2, height/2]),
     color = d3.scale.category20(),
     graticule = d3.geo.graticule();
 
 var path = d3.geo.path()
     .projection(projection);
+    
+var zoom = d3.behavior.zoom()
+    .translate(projection.translate())
+    .scale(projection.scale())
+    .scaleExtent([150, 1000]) 
+    .on("zoom", zoomed);
+    
+function clicked(d) {
+    var centroid = path.centroid(d),
+        translate = projection.translate();
+
+    projection.translate([
+            translate[0] - centroid[0] + width / 2,
+            translate[1] - centroid[1] + height / 2
+    ]);
+    zoom.translate(projection.translate());
+
+    g.selectAll("path").transition()
+          .duration(700)
+          .attr("d", path);
+}
+    
+function zoomed() {
+    projection.translate(d3.event.translate).scale(d3.event.scale);
+    g.selectAll("path").attr("d", path);
+}
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
-	
-    var div = d3.select("body").append("div")   
+
+var g = svg.append("g")
+	.call(zoom)
+
+var div = d3.select("body").append("div")   
     .attr("class", "tooltip")               
     .style("opacity", 0);	
 /*
@@ -73,15 +104,18 @@ svg.append("path")
     .attr("class", "graticule")
     .attr("d", path);
 */
-	 svg.append("rect")
+    
+g.append("rect")
     .attr("width", width)
     .attr("height", height)
 	.attr("fill", "#fff");
+/*    
 svg.append("path")
     .datum(graticule.outline)
     .attr("class", "graticule outline")
     .attr("d", path);
-
+*/
+    
 d3.csv("global_waste_statistics_redux.csv", function(error, data) {
     data.forEach(function(d) {
         d.country = d.country;
@@ -105,16 +139,14 @@ d3.csv("global_waste_statistics_redux.csv", function(error, data) {
     console.log(data);
     
     d3.json("final.json", function(error, world) {
-      var countries = topojson.feature(world, world.objects.countries).features;
-           //neighbors = topojson.neighbors(world.objects.countries.geometries);
-console.log(countries);
-    svg.selectAll(".country")
+     var countries = topojson.feature(world, world.objects.countries).features;
+     g.selectAll(".country")
         .data(countries)
         .enter().insert("path", ".graticule")
         .attr("class", "country")
         .attr("d", path)
-        //.style("fill", function(d, i) { 
-        //    return color(d.color = d3.max(neighbors[i], function(n) { return countries[n].color; }) + 1 | 0); })
+        .on("click", clicked)
+     
         .on("mouseover", function(d, i, test) {
             div.transition()        
                 .duration(200)      
@@ -124,27 +156,29 @@ console.log(countries);
                     "Population: " + d.properties.population + "<br/>" +
                     "Waste: " + d.properties.waste + "<br/>"  +
                     "WPC: "+ d.properties.wpc  + "<br/>"  +	 
-				 "Organic: "+ d.properties.organic  + "<br/>"  +
-				 "Paper: "+ d.properties.paper  + "<br/>"  +
-				 "Plastic: "+ d.properties.plastic  + "<br/>"  +
-				 "Glass: "+ d.properties.glass  + "<br/>"  +
-				 "Metal: "+ d.properties.metal  + "<br/>"  +
-				"Other: "+ d.properties.other 
+                    "Organic: "+ d.properties.organic  + "<br/>"  +
+                    "Paper: "+ d.properties.paper  + "<br/>"  +
+                    "Plastic: "+ d.properties.plastic  + "<br/>"  +
+                    "Glass: "+ d.properties.glass  + "<br/>"  +
+                    "Metal: "+ d.properties.metal  + "<br/>"  +
+                    "Other: "+ d.properties.other 
                  )  
                 .style("left", (d3.event.pageX) + "px")     
                 .style("top", (d3.event.pageY - 28) + "px");
-        })             
+        })          
+     
         .on("mouseout", function(d) {
             div .transition()		
                 .duration(500)		
                 .style("opacity", 0);	
         });
+        
     });
 });
 
 </script>
 	<h4>Created for CMPS 165: Data Programming for Visualization, Spring 2016</h4>
-		    <h4>Created By:</h4>    
+    <h4>Created By:</h4>    
     <ul>
       <li>Alexander Swift</li>
       <li>Aramis Marden</li>
@@ -152,16 +186,15 @@ console.log(countries);
       <li>Zach Holbrook</li>
     </ul>
 	
-	    <h4>In collaboration with Suresh K. Lodha, and V Karthik Thota </h4>    
-
+    <h4>In collaboration with Suresh K. Lodha, and V Karthik Thota </h4>    
+    
 	<h4>Data Sources:</h4>
 	<ul>
-		 <li><a href="https://github.com/afswift/CMPS165" target = "_blank">My Github</a></li>
+        <li><a href="https://github.com/afswift/CMPS165" target = "_blank">My Github</a></li>
 		<li><a href="http://siteresources.worldbank.org/INTURBANDEVELOPMENT/Resources/336387-1334852610766/What_a_Waste2012_Final.pdf" target = "_blank">World Waste Statistics 2012</a></li>
 	</ul>
-	
-		<h4>Code Sources:</h4>
-	<ul>
-		 <li><a href="http://bl.ocks.org/rveciana/f46df2272b289a9ce4e7" target = "_blank"> World JSON map</a></li>
 
+    <h4>Code Sources:</h4>
+	<ul>
+        <li><a href="http://bl.ocks.org/rveciana/f46df2272b289a9ce4e7" target = "_blank"> World JSON map</a></li>
 	</ul>
