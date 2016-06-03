@@ -59,13 +59,24 @@ div.tooltip {
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="d3-zoom-pan-extent.js"></script>
+
 <script>
+    
 var width = 960,
     height = 500;
+    
+var x = d3.scale.linear()
+    .domain([-width / 2, width / 2])
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .domain([-height / 2, height / 2])
+    .range([height, 0]);
 
 var projection = d3.geo.equirectangular()
         .scale(150)
-        .translate([width/2, height/2]),
+        .translate([width / 2, height / 2]),
     color = d3.scale.category20(),
     graticule = d3.geo.graticule();
 
@@ -73,9 +84,13 @@ var path = d3.geo.path()
     .projection(projection);
     
 var zoom = d3.behavior.zoom()
+    .x(x)
+    .xExtent([(-width  / 2) - 3.2, (-width  / 2) + 3.2])
+    .y(y)
+    .yExtent([(height / 2) - 1.667, (height / 2) + 1.667])
     .translate(projection.translate())
     .scale(projection.scale())
-    .scaleExtent([150, 1000]) 
+    .scaleExtent([150, 10000]) 
     .on("zoom", zoomed);
     
 function clicked(d) {
