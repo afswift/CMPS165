@@ -223,7 +223,6 @@ div.tooltip {
  
 	
 	
-	
 var width = 960,
     height = 500;
     
@@ -384,23 +383,13 @@ legend.append("text")
         })     
         .attr("class", function(d) { return quantize(d.properties.wpc); });
     })
-	document.write('<div id=\"area2\">');
-	document.write('<ul style="position: relative; left: 920px; top: -400px;list-style-type: none;" >');
-	document.write('<li><button id="Population" class="PovertyButton" onclick="Population();">Waste</button></li>');
-	document.write('<li><button id="Housing Prices" class="PovertyButton" onclick="Prices();">Waste Per Capita</button></li>');
-	document.write('<li><button id="Income" class="PovertyButton" onclick="Income();">Organic</button></li>');
-	document.write('<li><button id="Employment" class="PovertyButton" onclick="Employment();">Paper</button></li>');
-	document.write('<li><button id="Poverty" class="PovertyButton" onclick="Poverty();">Plastic</button></li>');
-	document.write('<li><button id="Poverty" class="PovertyButton" onclick="Poverty();">Glass</button></li>');
-	document.write('<li><button id="Poverty" class="PovertyButton" onclick="Poverty();">Metal</button></li>');
-	document.write('<li><button id="Poverty" class="PovertyButton" onclick="Poverty();">Other</button></li>');
+
 	
-	document.write('</ul>');
-	document.write('</div>');
 
 </script>
 	
 	<p> </p>
+	
 	<h4>Created for CMPS 165: Data Programming for Visualization, Spring 2016</h4>
     <h4>Created By:</h4>    
     <ul>
@@ -422,4 +411,17 @@ legend.append("text")
 	<ul>
         <li><a href="http://bl.ocks.org/rveciana/f46df2272b289a9ce4e7" target = "_blank"> World JSON map</a></li>
 		<li><a href="https://github.com/ryanbrounley/LAvsSF" target = "_blank"> Ryan Brounley's LAvsSF GitHub</a></li>
+	</ul>
+	
+	
+	<ul style="position: relative; left: 920px; top: -900px;list-style-type: none;" >
+       <li><button id="Population" class="PovertyButton" onclick="Population();">Waste</button></li>
+	   <li><button id="Housing Prices" class="PovertyButton" onclick="Prices();">Waste Per Capita</button></li>
+	   <li><button id="Income" class="PovertyButton" onclick="Income();">Organic</button></li>
+       <li><button id="Employment" class="PovertyButton" onclick="Employment();">Paper</button></li>
+       <li><button id="Poverty" class="PovertyButton" onclick="Poverty();">Plastic</button></li>
+	   <li><button id="Poverty" class="PovertyButton" onclick="Poverty();">Glass</button></li>
+	   <li><button id="Poverty" class="PovertyButton" onclick="Poverty();">Metal</button></li>
+       <li><button id="Poverty" class="PovertyButton" onclick="Poverty();">Other</button></li>
+	
 	</ul>
