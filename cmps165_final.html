@@ -31,7 +31,7 @@ div.tooltip {
     width: auto;
     height: auto;
     padding: 10px;
-    font-size: 10px;
+    font-size: 12px;
     background-color: white;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -64,9 +64,11 @@ div.tooltip {
 <script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script src="d3-zoom-pan-extent.js"></script>
-
 <script>
-    
+ 
+	
+	
+	
 var width = 960,
     height = 500;
     
@@ -127,6 +129,12 @@ var g = svg.append("g")
 var div = d3.select("body").append("div")   
     .attr("class", "tooltip")               
     .style("opacity", 0);	
+	
+	var play = svg.append("g")
+    .attr("class", "play");
+
+
+
 /*
 svg.append("path")
     .datum(graticule)
@@ -180,30 +188,11 @@ legend.append("text")
      .attr("y", function(d, i){ return height - (i*ls_h) - ls_h - 4;})
      .text(function(d, i){ return legend_labels[i]; });
     
-d3.csv("global_waste_statistics_redux.csv", function(error, data) {
-    data.forEach(function(d) {
-        d.country = d.country;
-        d.id = +d.id;
-        d.income = d.income;
-        d.region = d.region;  
-        d.population = +d.population;
-        d.wpc = +d.wpc;
-        d.waste = d.waste;	
-        d.future_pop = +d.future_pop;
-        d.future_urban_pop = +d.future_urban_pop;
-        d.future_wpc = +d.future_wpc;
-        d.future_waste = +d.future_waste;
-        d.organic = +d.organic;
-        d.paper = +d.paper;
-        d.plastic = +d.plastic;
-        d.glass = +d.glass;
-        d.metal = +d.metal;
-        d.other = +d.other;
-    });
-    console.log(data);
+
     
     d3.json("final.json", function(error, world) {
      var countries = topojson.feature(world, world.objects.countries).features;
+		//console.log(data);
      g.selectAll(".country")
         .data(countries)
         .enter().insert("path", ".graticule")
@@ -216,16 +205,16 @@ d3.csv("global_waste_statistics_redux.csv", function(error, data) {
                 .duration(200)      
                 .style("opacity", .9);      
             div .html(				
-                    d.id + "<br/>" +
+                    "<center>" +"<b>" +  d.id + "</b>" +  "</center>" +
                     "Population: " + d.properties.population + "<br/>" +
-                    "Waste: " + d.properties.waste + "<br/>"  +
-                    "WPC: "+ d.properties.wpc  + "<br/>"  +	 
-                    "Organic: "+ d.properties.organic  + "<br/>"  +
-                    "Paper: "+ d.properties.paper  + "<br/>"  +
-                    "Plastic: "+ d.properties.plastic  + "<br/>"  +
-                    "Glass: "+ d.properties.glass  + "<br/>"  +
-                    "Metal: "+ d.properties.metal  + "<br/>"  +
-                    "Other: "+ d.properties.other 
+                    "Waste: " + d.properties.waste + " Tonnes/Day" +"<br/>"  +
+                    "WPC: "+ d.properties.wpc  + " Kg/Capita/Day"+"<br/>"  +	 
+                    "Organic: "+ d.properties.organic  + "%"+"<br/>"  +
+                    "Paper: "+ d.properties.paper  + "%"+"<br/>"  +
+                    "Plastic: "+ d.properties.plastic  + "%"+ "<br/>"  +
+                    "Glass: "+ d.properties.glass  + "%"+ "<br/>"  + 
+                    "Metal: "+ d.properties.metal  + "%"+"<br/>"  +
+                    "Other: "+ d.properties.other + "%"
                  )  
                 .style("left", (d3.event.pageX) + "px")     
                 .style("top", (d3.event.pageY - 28) + "px");
@@ -235,10 +224,10 @@ d3.csv("global_waste_statistics_redux.csv", function(error, data) {
             div .transition()		
                 .duration(500)		
                 .style("opacity", 0);	
-        })        
+        })     
         .attr("class", function(d) { return quantize(d.properties.wpc); });
-    });
-});
+    })
+
 
 </script>
 	<h4>Created for CMPS 165: Data Programming for Visualization, Spring 2016</h4>
