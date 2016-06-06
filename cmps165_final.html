@@ -28,7 +28,7 @@ body {
 	
 div.tooltip {	
     position: absolute;
-    width: 180px;
+    width: 190px;
     height: auto;
     padding: 10px;
     font-size: 12px;
@@ -57,109 +57,16 @@ div.tooltip {
 .q7-9 { fill:rgb(8,81,156); }
 .q8-9 { fill:rgb(8,48,107); }
 	
-	.PopButton {
--moz-box-shadow: 0px 0px 0px 2px #3182bd;
-	-webkit-box-shadow: 0px 0px 0px 2px #3182bd;
-	box-shadow: 0px 0px 0px 2px #3182bd;
-	background-color:#6baed6;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	border:1px solid #4e6096;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:arial;
-	font-size:19px;
-	padding:7px 19px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #283966;
-}
 
-.PopButton:hover {
-  background-color: #08519c;
-  text-decoration: none;
-}
-
-.HouseButton {
-
-	-moz-box-shadow: 0px 0px 0px 2px #756bb1;
-	-webkit-box-shadow: 0px 0px 0px 2px #756bb1;
-	box-shadow: 0px 0px 0px 2px #756bb1;
-	background-color:#9e9ac8;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	border:1px solid #4e6096;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:arial;
-	font-size:19px;
-	padding:7px 19px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #283966;
-}
-
-.HouseButton:hover {
-  background: #54278f;
-  text-decoration: none;
-}
-
-.IncomeButton {
-	-moz-box-shadow: 0px 0px 0px 2px rgb(49,163,84);
-	-webkit-box-shadow: 0px 0px 0px 2px rgb(49,163,84);
-	box-shadow: 0px 0px 0px 2px rgb(49,163,84);
-	background-color:rgb(116,196,118);
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	border:1px solid #4e6096;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:arial;
-	font-size:19px;
-	padding:7px 19px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #283966;
-}
-
-.IncomeButton:hover {
-  background: rgb(0,109,44);
-  text-decoration: none;
-}
-
-.EmploymentButton {
-	-moz-box-shadow: 0px 0px 0px 2px #c51b8a;
-	-webkit-box-shadow: 0px 0px 0px 2px #c51b8a;
-	box-shadow: 0px 0px 0px 2px #c51b8a;
-	background-color:#f768a1;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	border:1px solid #4e6096;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:arial;
-	font-size:19px;
-	padding:7px 19px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #283966;
-}
-
-.EmploymentButton:hover {
-  background: #7a0177;
-  text-decoration: none;
-}
 
 .PovertyButton {
 	height: auto;
 	width: 200px;
-
-
-	border:1px solid #4e6096;
+	height: 63px;
+	background: #dddddd;
+	border:1px solid #000000;
+		border-left-style: none;
+	border-right-style: none;
 	display:inline-block;
 	cursor:pointer;
 	color:#000000;
@@ -170,7 +77,7 @@ div.tooltip {
 }
 
 .PovertyButton:hover {
-  background: #eeeeee;
+  background: #f8f8f8;
   text-decoration: none;
 }
 
@@ -183,36 +90,12 @@ div.tooltip {
 		float:right;
 	}
 	
-.myButton {
-	-moz-box-shadow: 0px 0px 0px 2px #9fb4f2;
-	-webkit-box-shadow: 0px 0px 0px 2px #9fb4f2;
-	box-shadow: 0px 0px 0px 2px #9fb4f2;
-	background-color:#7892c2;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	border:1px solid #4e6096;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:arial;
-	font-size:19px;
-	padding:7px 19px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #283966;
-}
-.myButton:hover {
-	background-color:#476e9e;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
+
     
 </style>
 
 <body>
-<h1 style = "text-align:center; color:steelblue; font-family:verdana "><bold> World Wide Waster </bold></h1>
+<h1 style = "text-align:center; color:steelblue; font-family:verdana "><bold> Global Waste </bold></h1>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
@@ -224,7 +107,7 @@ div.tooltip {
 	
 	
 var width = 960,
-    height = 500;
+    height = 504;
     
 var x = d3.scale.linear()
     .domain([-width / 2, width / 2])
@@ -299,7 +182,7 @@ svg.append("path")
 g.append("rect")
     .attr("width", width)
     .attr("height", height)
-	.attr("fill", "#fff");
+	.attr("fill", "#eee");
     
 
 /* this code puts a border around the map    
@@ -344,6 +227,102 @@ legend.append("text")
     
 
     
+d3.json("final.json", function(error, world) {
+     var countries = topojson.feature(world, world.objects.countries).features;
+		//console.log(data);
+     g.selectAll(".country")
+        .data(countries)
+        .enter().insert("path", ".graticule")
+        .attr("class", "country")
+        .attr("d", path)
+        .on("click", clicked)
+     
+        .on("mouseover", function(d, i, test) {
+            div.transition()        
+                .duration(200)      
+                .style("opacity", .9);
+		 
+            div .html(				
+                    "<div style=\"text-align:center\">" +"<b>" +  d.id + "</b>" +  "</div>" +
+                    "<div style=\"float: left\">" + "Population: " + "</div>" +  "<div style=\"float:right\">" + d.properties.population + "</div>" + "<br/>" +
+                    "<div style=\"float: left\">" + "Waste: " + "</div>" +  "<div style=\"float:right\">" + d.properties.waste + " Tonnes/Day" +  "</div>" +"<br/>"  +
+                    "<div style=\"float: left\">" + "WPC: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.wpc   +" Kg/Capita/Day"+  "</div>" +"<br/>"  +	 
+                    "<div style=\"float: left\">" +"Organic: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.organic  + "%" + "</div>" +"<br/>"  +
+                    "<div style=\"float: left\">" +"Paper: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.paper  + "%"+ "</div>" + "<br/>"  +
+                    "<div style=\"float: left\">" + "Plastic: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.plastic  + "%"+ "</div>" + "<br/>"  +
+                    "<div style=\"float: left\">" + "Glass: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.glass  + "%"+ "</div>" + "<br/>"  + 
+                    "<div style=\"float: left\">" + "Metal: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.metal  + "%"+ "</div>" + "<br/>"  +
+                    "<div style=\"float: left\">" + "Other: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.other + "%" +  "</div>"
+                 )  
+                .style("left", (d3.event.pageX) + "px")     
+                .style("top", (d3.event.pageY - 28) + "px");
+		 
+        })          
+     
+        .on("mouseout", function(d) {
+            div .transition()		
+                .duration(500)		
+                .style("opacity", 0);	
+        })     
+        .attr("class", function(d) { return quantize(d.properties.wpc); });
+    })
+    
+function Organic(){
+    
+    var quantizeOrganic = d3.scale.quantize()
+        .domain([0, 100])
+        .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+    
+    var svg = d3.select("body").transition();
+    
+    d3.json("final.json", function(error, world) {
+     var countries = topojson.feature(world, world.objects.countries).features;
+		//console.log(data);
+     g.selectAll(".country")
+        .data(countries)
+        .enter().insert("path", ".graticule")
+        .attr("class", "country")
+        .attr("d", path)
+        .on("click", clicked)
+     
+        .on("mouseover", function(d, i, test) {
+            div.transition()        
+                .duration(200)      
+                .style("opacity", .9);
+		 
+            div .html(				
+                    "<div style=\"text-align:center\">" +"<b>" +  d.id + "</b>" +  "</div>" +
+                    "<div style=\"float: left\">" + "Population: " + "</div>" +  "<div style=\"float:right\">" + d.properties.population + "</div>" + "<br/>" +
+                    "<div style=\"float: left\">" + "Waste: " + "</div>" +  "<div style=\"float:right\">" + d.properties.waste + " Tonnes/Day" +  "</div>" +"<br/>"  +
+                    "<div style=\"float: left\">" + "WPC: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.wpc   +" Kg/Capita/Day"+  "</div>" +"<br/>"  +	 
+                    "<div style=\"float: left\">" +"Organic: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.organic  + "%" + "</div>" +"<br/>"  +
+                    "<div style=\"float: left\">" +"Paper: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.paper  + "%"+ "</div>" + "<br/>"  +
+                    "<div style=\"float: left\">" + "Plastic: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.plastic  + "%"+ "</div>" + "<br/>"  +
+                    "<div style=\"float: left\">" + "Glass: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.glass  + "%"+ "</div>" + "<br/>"  + 
+                    "<div style=\"float: left\">" + "Metal: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.metal  + "%"+ "</div>" + "<br/>"  +
+                    "<div style=\"float: left\">" + "Other: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.other + "%" +  "</div>"
+                 )  
+                .style("left", (d3.event.pageX) + "px")     
+                .style("top", (d3.event.pageY - 28) + "px");
+		 
+        })          
+     
+        .on("mouseout", function(d) {
+            div .transition()		
+                .duration(500)		
+                .style("opacity", 0);	
+        })     
+        .attr("class", function(d) { return quantizeOrganic(d.properties.organic); });
+    })
+
+    
+}
+
+
+function WPC(){
+    
+    var svg = d3.select("body").transition();
+    
     d3.json("final.json", function(error, world) {
      var countries = topojson.feature(world, world.objects.countries).features;
 		//console.log(data);
@@ -384,11 +363,12 @@ legend.append("text")
         .attr("class", function(d) { return quantize(d.properties.wpc); });
     })
 
-	
+    
+}
 
 </script>
 	
-	<p> </p>
+	<p style="width: 1200px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eros nibh, tincidunt id dolor ut, pulvinar suscipit augue. Nulla finibus facilisis sem efficitur gravida. Nulla lorem neque, finibus vitae magna in, blandit scelerisque erat. In hac habitasse platea dictumst. Ut pretium, libero eu rutrum vulputate, orci elit vulputate diam, a placerat ipsum libero ut quam. Nullam eget laoreet velit. Cras ullamcorper erat id odio dictum elementum. Nam rhoncus mauris at vehicula ornare. Aliquam ac nunc tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean facilisis purus ligula, vitae vulputate nisl dapibus ac. Nulla at ultricies urna. Phasellus tortor risus, tristique non scelerisque volutpat, luctus vel metus. Nulla ante ante, sollicitudin in sem eget, semper dapibus leo. In euismod, diam nec convallis consectetur, ex elit accumsan odio, in consequat nisl mauris eu lorem. Quisque purus dui, elementum rutrum efficitur ut, sodales sed massa. </p>
 	
 	<h4>Created for CMPS 165: Data Programming for Visualization, Spring 2016</h4>
     <h4>Created By:</h4>    
@@ -414,14 +394,14 @@ legend.append("text")
 	</ul>
 	
 	
-	<ul style="position: relative; left: 920px; top: -900px;list-style-type: none;" >
+	<ul style="position: relative; left: 920px; top: -1052px;list-style-type: none;" >
        <li><button id="Population" class="PovertyButton" onclick="Population();">Waste</button></li>
-	   <li><button id="Housing Prices" class="PovertyButton" onclick="Prices();">Waste Per Capita</button></li>
-	   <li><button id="Income" class="PovertyButton" onclick="Income();">Organic</button></li>
+	   <li><button id="Housing Prices" class="PovertyButton" onclick="WPC();">Waste Per Capita</button></li>
+	   <li><button id="Income" class="PovertyButton" onclick="Organic();">Organic</button></li>
        <li><button id="Employment" class="PovertyButton" onclick="Employment();">Paper</button></li>
-       <li><button id="Poverty" class="PovertyButton" onclick="Poverty();">Plastic</button></li>
-	   <li><button id="Poverty" class="PovertyButton" onclick="Poverty();">Glass</button></li>
-	   <li><button id="Poverty" class="PovertyButton" onclick="Poverty();">Metal</button></li>
-       <li><button id="Poverty" class="PovertyButton" onclick="Poverty();">Other</button></li>
+       <li><button id="Poverty" class="PovertyButton" onclick="Plastic();">Plastic</button></li>
+	   <li><button id="Poverty" class="PovertyButton" onclick="Glass();">Glass</button></li>
+	   <li><button id="Poverty" class="PovertyButton" onclick="Metal();">Metal</button></li>
+       <li><button id="Poverty" class="PovertyButton" onclick="Other();">Other</button></li>
 	
 	</ul>
