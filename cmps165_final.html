@@ -28,7 +28,7 @@ body {
 	
 div.tooltip {	
     position: absolute;
-    width: auto;
+    width: 180px;
     height: auto;
     padding: 10px;
     font-size: 12px;
@@ -206,16 +206,16 @@ legend.append("text")
                 .duration(200)      
                 .style("opacity", .9);      
             div .html(				
-                    "<center>" +"<b>" +  d.id + "</b>" +  "</center>" +
-                    "Population: " + d.properties.population + "<br/>" +
-                    "Waste: " + d.properties.waste + " Tonnes/Day" +"<br/>"  +
-                    "WPC: "+ d.properties.wpc  + " Kg/Capita/Day"+"<br/>"  +	 
-                    "Organic: "+ d.properties.organic  + "%"+"<br/>"  +
-                    "Paper: "+ d.properties.paper  + "%"+"<br/>"  +
-                    "Plastic: "+ d.properties.plastic  + "%"+ "<br/>"  +
-                    "Glass: "+ d.properties.glass  + "%"+ "<br/>"  + 
-                    "Metal: "+ d.properties.metal  + "%"+"<br/>"  +
-                    "Other: "+ d.properties.other + "%"
+                    "<div style=\"text-align:center\">" +"<b>" +  d.id + "</b>" +  "</div>" +
+                    "<div style=\"float: left\">" + "Population: " + "</div>" +  "<div style=\"float:right\">" + d.properties.population + "</div>" + "<br/>" +
+                    "<div style=\"float: left\">" + "Waste: " + "</div>" +  "<div style=\"float:right\">" + d.properties.waste + " Tonnes/Day" +  "</div>" +"<br/>"  +
+                    "<div style=\"float: left\">" + "WPC: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.wpc   +" Kg/Capita/Day"+  "</div>" +"<br/>"  +	 
+                    "<div style=\"float: left\">" +"Organic: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.organic  + "%" + "</div>" +"<br/>"  +
+                    "<div style=\"float: left\">" +"Paper: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.paper  + "%"+ "</div>" + "<br/>"  +
+                    "<div style=\"float: left\">" + "Plastic: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.plastic  + "%"+ "</div>" + "<br/>"  +
+                    "<div style=\"float: left\">" + "Glass: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.glass  + "%"+ "</div>" + "<br/>"  + 
+                    "<div style=\"float: left\">" + "Metal: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.metal  + "%"+ "</div>" + "<br/>"  +
+                    "<div style=\"float: left\">" + "Other: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.other + "%" +  "</div>"
                  )  
                 .style("left", (d3.event.pageX) + "px")     
                 .style("top", (d3.event.pageY - 28) + "px");
