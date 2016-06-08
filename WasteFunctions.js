@@ -62,7 +62,12 @@ function Waste(){
          .attr("x", 50)
          .attr("y", function(d, i){ return height - (i*ls_h) - ls_h - 4;})
          .text(function(d, i){ return legend_labels[i]; });
-
+    
+    legend.append("text")
+         .attr("x", 19)
+         .attr("y", 300)
+         .text("Tonnes/Day");
+    
     d3.json("final.json", function(error, world) {
     var countries = topojson.feature(world, world.objects.countries).features;
         g.selectAll(".country")
