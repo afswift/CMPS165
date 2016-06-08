@@ -1,0 +1,85 @@
+body {
+    background-color: #ffffff;
+}
+	
+.country {
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: .5px;
+    stroke-linejoin: round;
+}
+
+.graticule {
+    fill: none;
+    stroke: #000;
+    stroke-opacity: .3;
+    stroke-width: .5px;
+}
+
+.graticule.outline {
+    stroke: #333;
+    stroke-opacity: 1;
+    stroke-width: 1.5px;
+}
+	
+div.tooltip {	
+    position: absolute;
+    width: 190px;
+    height: auto;
+    padding: 10px;
+    font-size: 12px;
+	font-family: "Trebuchet MS";
+    background-color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    pointer-events: none;		
+}
+    
+.legend {
+  font-size: 12px;
+}
+    
+.q0-9 { fill:rgb(247,251,255); }
+.q1-9 { fill:rgb(222,235,247); }
+.q2-9 { fill:rgb(198,219,239); }
+.q3-9 { fill:rgb(158,202,225); }
+.q4-9 { fill:rgb(107,174,214); }
+.q5-9 { fill:rgb(66,146,198); }
+.q6-9 { fill:rgb(33,113,181); }
+.q7-9 { fill:rgb(8,81,156); }
+.q8-9 { fill:rgb(8,48,107); }
+
+.StatButton {
+	height: auto;
+	width: 200px;
+	height: 63px;
+	background: #dddddd;
+	border:1px solid #000000;
+		border-left-style: none;
+	border-right-style: none;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:arial;
+	font-size:19px;
+	padding:7px 19px;
+
+}
+
+.StatButton:hover {
+  background: #f8f8f8;
+  text-decoration: none;
+}
+
+	area1 {	
+		float:left;
+	}
+
+	area2 {
+		background-color:black;
+		float:right;
+	}

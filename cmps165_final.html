@@ -1,104 +1,20 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<style>
-    
-body {
-    background-color: #ffffff;
-}
-	
-.country {
-    fill: #fff;
-    stroke: #fff;
-    stroke-width: .5px;
-    stroke-linejoin: round;
-}
-
-.graticule {
-    fill: none;
-    stroke: #000;
-    stroke-opacity: .3;
-    stroke-width: .5px;
-}
-
-.graticule.outline {
-    stroke: #333;
-    stroke-opacity: 1;
-    stroke-width: 1.5px;
-}
-	
-div.tooltip {	
-    position: absolute;
-    width: 190px;
-    height: auto;
-    padding: 10px;
-    font-size: 12px;
-	font-family: "Trebuchet MS";
-    background-color: white;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 10px;
-    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-    pointer-events: none;		
-}
-    
-.legend {
-  font-size: 12px;
-}
-    
-.q0-9 { fill:rgb(247,251,255); }
-.q1-9 { fill:rgb(222,235,247); }
-.q2-9 { fill:rgb(198,219,239); }
-.q3-9 { fill:rgb(158,202,225); }
-.q4-9 { fill:rgb(107,174,214); }
-.q5-9 { fill:rgb(66,146,198); }
-.q6-9 { fill:rgb(33,113,181); }
-.q7-9 { fill:rgb(8,81,156); }
-.q8-9 { fill:rgb(8,48,107); }
-
-.StatButton {
-	height: auto;
-	width: 200px;
-	height: 63px;
-	background: #dddddd;
-	border:1px solid #000000;
-		border-left-style: none;
-	border-right-style: none;
-	display:inline-block;
-	cursor:pointer;
-	color:#000000;
-	font-family:arial;
-	font-size:19px;
-	padding:7px 19px;
-
-}
-
-.StatButton:hover {
-  background: #f8f8f8;
-  text-decoration: none;
-}
-
-	area1 {	
-		float:left;
-	}
-
-	area2 {
-		background-color:black;
-		float:right;
-	}
-</style>
-
+<title>Global Waste</title>
+<link rel="stylesheet" type="text/css" href="cmps165-final.css">
 <body>
-<h1 style = "text-align:center; color:steelblue; font-family:verdana "><bold> Global Waste </bold></h1>
+<h1 style = "text-align:center; color:steelblue; font-family:verdana ">
+<bold> Global Waste </bold>
+</h1>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script src="WasteFunctions.js"></script> 
 <script src="d3-zoom-pan-extent.js"></script>
-	<div id="area1"></div>
-	<div id="area2"></div>
-<script>	
+<div id="area1"></div>
+<div id="area2"></div>
+    
+<script>
 var width = 960,
     height = 504;
     
@@ -169,10 +85,11 @@ g.append("rect")
     .attr("height", height)
 	.attr("fill", "#eee");
     
-// legend
-var color_domain = [50, 150, 350, 750, 1500, 2000, 4000, 8000] // to corrolate with the 
-var ext_color_domain = [0, 50, 150, 350, 750, 1500, 2000, 4000, 8000]
-var legend_labels = ["< 50", "50+", "150+", "350+", "750+", "1500+", "2000+","4000+","8000+"]   // labelling for the variables      
+// legend FOR WASTE
+var color_domain = [22500, 22500*2, 22500*3, 22500*4, 22500*5, 22500*6, 22500*7, 22500*8] // to corrolate with the 
+var ext_color_domain = [0, 22500, 22500*2, 22500*3, 22500*4, 22500*5, 22500*6, 22500*7, 22500*8]
+var legend_labels = ["0-22499", "22500-44999", "45000-67499", "67500-89999", "90000-112499", "112500-134999", "135000-157499", "157500-179999", ">180000"];    
+    
 var color = d3.scale.threshold()
     .domain(color_domain)
     .range(["#F7FBFF","#DEEBF7","#C6DBEF", "#9ECAE1", "#6BAED6", "#4292C6", "#2171B5", "#08519C", "#08306B"]); //colors to show on legend
@@ -197,52 +114,8 @@ legend.append("text")
      .attr("x", 50)
      .attr("y", function(d, i){ return height - (i*ls_h) - ls_h - 4;})
      .text(function(d, i){ return legend_labels[i]; });
-    
-var quantize = d3.scale.quantize()
-    .domain([0, 3])
-    .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
 
-    
-d3.json("final.json", function(error, world) {
-     var countries = topojson.feature(world, world.objects.countries).features;
-     g.selectAll(".country")
-        .data(countries)
-        .enter().insert("path", ".graticule")
-        .attr("class", "country")
-        .attr("d", path)
-        .on("click", clicked)
-     
-        .on("mouseover", function(d, i, test) {
-            div.transition()        
-                .duration(200)      
-                .style("opacity", .9);
-		 
-            div .html(				
-                    "<div style=\"text-align:center\">" +"<b>" +  d.id + "</b>" +  "</div>" +
-                    "<div style=\"float: left\">" + "Population: " + "</div>" +  "<div style=\"float:right\">" + d.properties.population + "</div>" + "<br/>" +
-                    "<div style=\"float: left\">" + "Waste: " + "</div>" +  "<div style=\"float:right\">" + d.properties.waste + " Tonnes/Day" +  "</div>" +"<br/>"  +
-                    "<div style=\"float: left\">" + "WPC: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.wpc   +" Kg/Capita/Day"+  "</div>" +"<br/>"  +	 
-                    "<div style=\"float: left\">" +"Organic: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.organic  + "%" + "</div>" +"<br/>"  +
-                    "<div style=\"float: left\">" +"Paper: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.paper  + "%"+ "</div>" + "<br/>"  +
-                    "<div style=\"float: left\">" + "Plastic: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.plastic  + "%"+ "</div>" + "<br/>"  +
-                    "<div style=\"float: left\">" + "Glass: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.glass  + "%"+ "</div>" + "<br/>"  + 
-                    "<div style=\"float: left\">" + "Metal: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.metal  + "%"+ "</div>" + "<br/>"  +
-                    "<div style=\"float: left\">" + "Other: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.other + "%" +  "</div>"
-                 )  
-                .style("left", (d3.event.pageX) + "px")     
-                .style("top", (d3.event.pageY - 28) + "px");
-		 
-        })          
-        .on("mouseout", function(d) {
-            div .transition()		
-                .duration(500)		
-                .style("opacity", 0);	
-        })     
-        //if this line of code is removed, you cannot transition data sets.
-        //why????
-        .attr("class", function(d) { return quantize(d.properties.wpc); });
-    })
-
+window.onload = Waste;    
 </script>
 	
 	<p style="width: 1160px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eros nibh, tincidunt id dolor ut, pulvinar suscipit augue. Nulla finibus facilisis sem efficitur gravida. Nulla lorem neque, finibus vitae magna in, blandit scelerisque erat. In hac habitasse platea dictumst. Ut pretium, libero eu rutrum vulputate, orci elit vulputate diam, a placerat ipsum libero ut quam. Nullam eget laoreet velit. Cras ullamcorper erat id odio dictum elementum. Nam rhoncus mauris at vehicula ornare. Aliquam ac nunc tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean facilisis purus ligula, vitae vulputate nisl dapibus ac. Nulla at ultricies urna. Phasellus tortor risus, tristique non scelerisque volutpat, luctus vel metus. Nulla ante ante, sollicitudin in sem eget, semper dapibus leo. In euismod, diam nec convallis consectetur, ex elit accumsan odio, in consequat nisl mauris eu lorem. Quisque purus dui, elementum rutrum efficitur ut, sodales sed massa. </p>
@@ -280,6 +153,4 @@ d3.json("final.json", function(error, world) {
 	   <li><button id="Glass"      class="StatButton" onclick="Glass();">Glass</button></li>
 	   <li><button id="Metal"      class="StatButton" onclick="Metal();">Metal</button></li>
        <li><button id="Other"      class="StatButton" onclick="Other();">Other</button></li>
-	
 	</ul>
-</center>
