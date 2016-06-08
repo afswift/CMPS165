@@ -32,6 +32,36 @@ var quantizeOther = d3.scale.quantize()
 
 function Waste(){
     var svg = d3.select("body").transition();
+    
+    // legend FOR WASTE
+    var color_domain = [22500, 22500*2, 22500*3, 22500*4, 22500*5, 22500*6, 22500*7, 22500*8] // to corrolate with the 
+    var ext_color_domain = [0, 22500, 22500*2, 22500*3, 22500*4, 22500*5, 22500*6, 22500*7, 22500*8]
+    var legend_labels = ["0-22499", "22500-44999", "45000-67499", "67500-89999", "90000-112499", "112500-134999", "135000-157499", "157500-179999", ">180000"];    
+
+    var color = d3.scale.threshold()
+        .domain(color_domain)
+        .range(["#F7FBFF","#DEEBF7","#C6DBEF", "#9ECAE1", "#6BAED6", "#4292C6", "#2171B5", "#08519C", "#08306B"]); //colors to show on legend
+
+    var legend = d3.selectAll("g.legend")
+        .data(ext_color_domain)
+        .enter().append("g")
+        .attr("class", "legend");
+
+    var ls_w = 20,
+        ls_h = 20;
+
+legend.append("rect")
+      .attr("x", 20)
+      .attr("y", function(d, i){ return height - (i*ls_h) - 2*ls_h;})
+      .attr("width", ls_w)
+      .attr("height", ls_h)
+      .style("fill", function(d, i) { return color(d); })
+    //.style("opacity", 0.8);
+
+legend.append("text")  
+     .attr("x", 50)
+     .attr("y", function(d, i){ return height - (i*ls_h) - ls_h - 4;})
+     .text(function(d, i){ return legend_labels[i]; });
 
     d3.json("final.json", function(error, world) {
     var countries = topojson.feature(world, world.objects.countries).features;
