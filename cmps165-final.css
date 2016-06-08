@@ -42,6 +42,8 @@ div.tooltip {
 .legend {
   font-size: 12px;
 }
+
+.grey { fill:rgb(160,160,160); }
     
 .q0-9 { fill:rgb(247,251,255); }
 .q1-9 { fill:rgb(222,235,247); }

@@ -102,7 +102,9 @@ function Waste(){
                 .duration(500)		
                 .style("opacity", 0);	
         })     
-        .attr("class", function(d) { return quantizeWaste(d.properties.waste); });
+        .attr("class", function(d) { 
+            if (d.properties.waste == undefined || d.properties.waste == null) { return "grey" }
+            return quantizeWaste(d.properties.waste); });
     })
 }
 
@@ -171,7 +173,9 @@ function WPC(){
                 .duration(500)		
                 .style("opacity", 0);	
         })     
-        .attr("class", function(d) { return quantizeWPC(d.properties.wpc); });
+        .attr("class", function(d) { 
+            if (d.properties.wpc == undefined || d.properties.wpc == null) { return "grey"; }
+            return quantizeWPC(d.properties.wpc); });
     })
 }
 
@@ -211,38 +215,7 @@ function Organic(){
          .attr("x", 19)
          .attr("y", 300)
          .text("% of total waste");
-        
-    d3.json("final.json", function(error, world) {
-    var countries = topojson.feature(world, world.objects.countries).features;
-        g.selectAll(".country")
-        .data(countries)
-        .enter().insert("path", ".graticule")
-        .attr("class", "country")
-        .attr("d", path)
-        .on("click", clicked)
 
-        .on("mouseover", function(d, i, test) {
-            div.transition()        
-                .duration(200)      
-                .style("opacity", .9);
-
-            div .html(				
-                    "<div style=\"text-align:center\">" +"<b>" +  d.id + "</b>" +  "</div>" +
-                    "<div style=\"float: left\">" + "Population: " + "</div>" +  "<div style=\"float:right\">" + d.properties.population + "</div>" + "<br/>" +
-                    "<div style=\"float: left\">" + "Waste: " + "</div>" +  "<div style=\"float:right\">" + d.properties.waste + " Tonnes/Day" +  "</div>" +"<br/>"  +
-                    "<div style=\"float: left\">" + "WPC: "+ "</div>" +  "<div style=\"float:right\">" + d.properties.wpc   +" Kg/Capita/Day"+  "</div>" +"<br/>"
-                 )  
-                .style("left", (d3.event.pageX) + "px")     
-                .style("top", (d3.event.pageY - 28) + "px");
-        })          
-        .on("mouseout", function(d) {
-            div .transition()		
-                .duration(500)		
-                .style("opacity", 0);	
-        })     
-        .attr("class", function(d) { return quantizeWPC(d.properties.wpc); });
-    })
-    
     d3.json("final.json", function(error, world) {
     var countries = topojson.feature(world, world.objects.countries).features;
     g.selectAll(".country")
@@ -271,7 +244,9 @@ function Organic(){
                 .duration(500)		
                 .style("opacity", 0);	
         })     
-        .attr("class", function(d) { return quantizeOrganic(d.properties.organic); });
+        .attr("class", function(d) { 
+            if (d.properties.organic == undefined || d.properties.organic == null) { return "grey" }
+            return quantizeOrganic(d.properties.organic); });
     })
 }
 
@@ -339,7 +314,9 @@ function Paper(){
                 .duration(500)		
                 .style("opacity", 0);	
         })     
-        .attr("class", function(d) { return quantizePaper(d.properties.paper); });
+        .attr("class", function(d) { 
+            if (d.properties.paper == undefined || d.properties.paper == null) { return "grey" }
+            return quantizePaper(d.properties.paper); });
     })
 }
 
@@ -407,7 +384,9 @@ function Plastic(){
                 .duration(500)		
                 .style("opacity", 0);	
         })     
-        .attr("class", function(d) { return quantizePlastic(d.properties.plastic); });
+        .attr("class", function(d) {
+            if (d.properties.plastic == undefined || d.properties.plastic == null) { return "grey" }
+            return quantizePlastic(d.properties.plastic); });
     })
 }
 
@@ -475,7 +454,9 @@ function Glass(){
                 .duration(500)		
                 .style("opacity", 0);	
         })     
-        .attr("class", function(d) { return quantizeGlass(d.properties.glass); });
+        .attr("class", function(d) {
+            if (d.properties.glass == undefined || d.properties.glass == null) { return "grey" }
+            return quantizeGlass(d.properties.glass); });
     })
 }
 
@@ -544,7 +525,9 @@ function Metal(){
                 .duration(500)		
                 .style("opacity", 0);	
         })     
-        .attr("class", function(d) { return quantizeMetal(d.properties.metal); });
+        .attr("class", function(d) {
+            if (d.properties.metal == undefined || d.properties.metal == null) { return "grey" }
+            return quantizeMetal(d.properties.metal); });
     })
 }
 
@@ -613,6 +596,9 @@ function Other(){
                 .duration(500)		
                 .style("opacity", 0);	
         })     
-        .attr("class", function(d) { return quantizeOther(d.properties.other); });
+        .attr("class", function(d) {
+            if (d.properties.other == undefined || d.properties.other == null) { return "grey" }
+
+            return quantizeOther(d.properties.other); });
     })
 }
