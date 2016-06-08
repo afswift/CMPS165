@@ -32,9 +32,10 @@ var quantizeOther = d3.scale.quantize()
 
 function Waste(){
     svg.selectAll("g.legend").remove();
+    d3.selectAll("path").remove();
     d3.select("body").transition();
     
-    // legend FOR WASTE
+    // legend
     var color_domain = [22500, 22500*2, 22500*3, 22500*4, 22500*5, 22500*6, 22500*7, 22500*8] // to corrolate with the 
     var ext_color_domain = [0, 22500, 22500*2, 22500*3, 22500*4, 22500*5, 22500*6, 22500*7, 22500*8]
     var legend_labels = ["<22499", "22500-44999", "45000-67499", "67500-89999", "90000-112499", "112500-134999", "135000-157499", "157500-179999", ">180000"];    
@@ -71,7 +72,7 @@ function Waste(){
     
     d3.json("final.json", function(error, world) {
     var countries = topojson.feature(world, world.objects.countries).features;
-        g.selectAll(".country")
+        g.selectAll("country")
         .data(countries)
         .enter().insert("path", ".graticule")
         .attr("class", "country")
@@ -107,6 +108,7 @@ function Waste(){
 
 function WPC(){
     svg.selectAll("g.legend").remove();
+    d3.selectAll("path").remove();
     d3.select("body").transition();
     
     // legend FOR WASTE
@@ -178,6 +180,7 @@ function WPC(){
 
 function Organic(){
     svg.selectAll("g.legend").remove();
+    d3.selectAll("path").remove();
     d3.select("body").transition();
     
     // legend
@@ -280,6 +283,7 @@ function Organic(){
 
 function Paper(){
     svg.selectAll("g.legend").remove();
+    d3.selectAll("path").remove();
     d3.select("body").transition();
     
     var color_domain = [8, 16, 24, 32, 40, 48, 56, 64]
@@ -350,6 +354,7 @@ function Paper(){
 
 function Plastic(){
     svg.selectAll("g.legend").remove();
+    d3.selectAll("path").remove();
     d3.select("body").transition();
     
     var color_domain = [  2.25,   4.5 ,   6.75,   9.  ,  11.25,  13.5 ,  15.75,  18.  ]
@@ -420,6 +425,7 @@ function Plastic(){
 
 function Glass(){
     svg.selectAll("g.legend").remove();
+    d3.selectAll("path").remove();
     d3.select("body").transition();
     
     var color_domain = [1.5, 3.0, 4.5, 6.0, 7.5, 9., 10.5, 12]
@@ -490,6 +496,7 @@ function Glass(){
 
 function Metal(){
     svg.selectAll("g.legend").remove();
+    d3.selectAll("path").remove();
     d3.select("body").transition();
     
     // legend
@@ -561,6 +568,7 @@ function Metal(){
 
 function Other(){
     svg.selectAll("g.legend").remove();
+    d3.selectAll("path").remove();
     d3.select("body").transition();
     
     // legend
