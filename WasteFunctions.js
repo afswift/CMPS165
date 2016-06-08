@@ -77,6 +77,9 @@ function Waste(){
         .enter().insert("path", ".graticule")
         .attr("class", "country")
         .attr("d", path)
+		.attr("stroke-width", 0.2)
+		.attr("stroke", "black")
+		.style()
         .on("click", clicked)
         .on("mouseover", function(d, i, test) {
             div.transition()        
@@ -152,6 +155,8 @@ function WPC(){
         .enter().insert("path", ".graticule")
         .attr("class", "country")
         .attr("d", path)
+	    .attr("stroke-width", 0.2)
+		.attr("stroke", "black")
         .on("click", clicked)
 
         .on("mouseover", function(d, i, test) {
@@ -223,6 +228,8 @@ function Organic(){
         .enter().insert("path", ".graticule")
         .attr("class", "country")
         .attr("d", path)
+			.attr("stroke-width", 0.2)
+		.attr("stroke", "black")
         .on("click", clicked)
 
         .on("mouseover", function(d, i, test) {
@@ -293,6 +300,8 @@ function Paper(){
         .enter().insert("path", ".graticule")
         .attr("class", "country")
         .attr("d", path)
+			.attr("stroke-width", 0.2)
+		.attr("stroke", "black")
         .on("click", clicked)
 
         .on("mouseover", function(d, i, test) {
@@ -363,6 +372,8 @@ function Plastic(){
         .enter().insert("path", ".graticule")
         .attr("class", "country")
         .attr("d", path)
+			.attr("stroke-width", 0.2)
+		.attr("stroke", "black")
         .on("click", clicked)
 
         .on("mouseover", function(d, i, test) {
@@ -433,6 +444,8 @@ function Glass(){
         .enter().insert("path", ".graticule")
         .attr("class", "country")
         .attr("d", path)
+			.attr("stroke-width", 0.2)
+		.attr("stroke", "black")
         .on("click", clicked)
 
         .on("mouseover", function(d, i, test) {
@@ -504,6 +517,8 @@ function Metal(){
         .enter().insert("path", ".graticule")
         .attr("class", "country")
         .attr("d", path)
+			.attr("stroke-width", 0.2)
+		.attr("stroke", "black")
         .on("click", clicked)
 
         .on("mouseover", function(d, i, test) {
@@ -575,6 +590,8 @@ function Other(){
         .enter().insert("path", ".graticule")
         .attr("class", "country")
         .attr("d", path)
+			.attr("stroke-width", 0.2)
+		.attr("stroke", "black")
         .on("click", clicked)
 
         .on("mouseover", function(d, i, test) {
