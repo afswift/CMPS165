@@ -1,3 +1,6 @@
+var ls_w = 20,
+    ls_h = 20;
+
 var quantizeWaste = d3.scale.quantize()
     .domain([0, 180000])
     .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
@@ -36,8 +39,8 @@ function Waste(){
     d3.select("body").transition();
     
     // legend
-    var color_domain = [22500, 22500*2, 22500*3, 22500*4, 22500*5, 22500*6, 22500*7, 22500*8] // to corrolate with the 
-    var ext_color_domain = [0, 22500, 22500*2, 22500*3, 22500*4, 22500*5, 22500*6, 22500*7, 22500*8]
+    var color_domain = [22500, 45000, 67500, 90000, 112500, 135000, 157500, 180000] // to corrolate with the 
+    var ext_color_domain = [0, 22500, 45000, 67500, 90000, 112500, 135000, 157500, 180000]
     var legend_labels = ["<22499", "22500-44999", "45000-67499", "67500-89999", "90000-112499", "112500-134999", "135000-157499", "157500-179999", ">180000"];    
 
     var color = d3.scale.threshold()
@@ -48,9 +51,6 @@ function Waste(){
         .data(ext_color_domain)
         .enter().append("g")
         .attr("class", "legend");
-
-    var ls_w = 20,
-        ls_h = 20;
 
     legend.append("rect")
           .attr("x", 20)
@@ -125,9 +125,6 @@ function WPC(){
         .enter().append("g")
         .attr("class", "legend");
 
-    var ls_w = 20,
-        ls_h = 20;
-
     legend.append("rect")
           .attr("x", 20)
           .attr("y", function(d, i){ return height - (i*ls_h) - 2*ls_h;})
@@ -196,9 +193,6 @@ function Organic(){
         .data(ext_color_domain)
         .enter().append("g")
         .attr("class", "legend");
-
-    var ls_w = 20,
-        ls_h = 20;
 
     legend.append("rect")
           .attr("x", 20)
@@ -299,9 +293,6 @@ function Paper(){
         .enter().append("g")
         .attr("class", "legend");
 
-    var ls_w = 20,
-        ls_h = 20;
-
     legend.append("rect")
           .attr("x", 20)
           .attr("y", function(d, i){ return height - (i*ls_h) - 2*ls_h;})
@@ -370,9 +361,6 @@ function Plastic(){
         .enter().append("g")
         .attr("class", "legend");
 
-    var ls_w = 20,
-        ls_h = 20;
-
     legend.append("rect")
           .attr("x", 20)
           .attr("y", function(d, i){ return height - (i*ls_h) - 2*ls_h;})
@@ -440,9 +428,6 @@ function Glass(){
         .data(ext_color_domain)
         .enter().append("g")
         .attr("class", "legend");
-
-    var ls_w = 20,
-        ls_h = 20;
 
     legend.append("rect")
           .attr("x", 20)
@@ -513,9 +498,6 @@ function Metal(){
         .enter().append("g")
         .attr("class", "legend");
 
-    var ls_w = 20,
-        ls_h = 20;
-
     legend.append("rect")
           .attr("x", 20)
           .attr("y", function(d, i){ return height - (i*ls_h) - 2*ls_h;})
@@ -584,9 +566,6 @@ function Other(){
         .data(ext_color_domain)
         .enter().append("g")
         .attr("class", "legend");
-
-    var ls_w = 20,
-        ls_h = 20;
 
     legend.append("rect")
           .attr("x", 20)
