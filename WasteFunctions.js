@@ -11,7 +11,7 @@ var quantizeWPC = d3.scale.quantize()
     
 var quantizeOrganic = d3.scale.quantize()
         .domain([0, 80])
-        .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+        .range(d3.range(9).map(function(i) { return "o" + i + "-9"; }));
 
 var quantizePaper = d3.scale.quantize()
         .domain([0, 64])
@@ -191,7 +191,7 @@ function Organic(){
 
     var color = d3.scale.threshold()
         .domain(color_domain)
-        .range(["#F7FBFF","#DEEBF7","#C6DBEF", "#9ECAE1", "#6BAED6", "#4292C6", "#2171B5", "#08519C", "#08306B"]);
+        .range(["#f7fcf5","#e5f5e0","#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#006d2c", "#00441b"]);
 
     var legend = svg.selectAll("g.legend")
         .data(ext_color_domain)

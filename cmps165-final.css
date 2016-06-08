@@ -55,6 +55,16 @@ div.tooltip {
 .q7-9 { fill:rgb(8,81,156); }
 .q8-9 { fill:rgb(8,48,107); }
 
+.o0-9 { fill:#f7fcf5; }
+.o1-9 { fill:#e5f5e0; }
+.o2-9 { fill:#c7e9c0; }
+.o3-9 { fill:#a1d99b; }
+.o4-9 { fill:#74c476; }
+.o5-9 { fill:#41ab5d; }
+.o6-9 { fill:#238b45; }
+.o7-9 { fill:#006d2c; }
+.o8-9 { fill:#00441b; }
+
 .StatButton {
 	height: auto;
 	width: 200px;
