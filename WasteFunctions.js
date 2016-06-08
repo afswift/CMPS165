@@ -1,7 +1,35 @@
-var quantize = d3.scale.quantize()
+var quantizeWaste = d3.scale.quantize()
+    .domain([0, 100000])
+    .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+
+var quantizeWPC = d3.scale.quantize()
     .domain([0, 3])
     .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
     
+var quantizeOrganic = d3.scale.quantize()
+        .domain([0, 80])
+        .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+
+var quantizePaper = d3.scale.quantize()
+        .domain([0, 62])
+        .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+
+var quantizePlastic = d3.scale.quantize()
+        .domain([0, 18])
+        .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+
+var quantizeGlass = d3.scale.quantize()
+        .domain([0, 12])
+        .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+
+var quantizeMetal = d3.scale.quantize()
+        .domain([0, 10])
+        .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+
+var quantizeOther = d3.scale.quantize()
+        .domain([0, 52])
+        .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+
 var quantizePercentages = d3.scale.quantize()
         .domain([0, 100])
         .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
@@ -41,7 +69,7 @@ function Waste(){
                 .duration(500)		
                 .style("opacity", 0);	
         })     
-        .attr("class", function(d) { return quantize(d.properties.waste); });
+        .attr("class", function(d) { return quantizeWaste(d.properties.waste); });
     })
 }
 
@@ -76,7 +104,7 @@ function WPC(){
                 .duration(500)		
                 .style("opacity", 0);	
         })     
-        .attr("class", function(d) { return quantize(d.properties.wpc); });
+        .attr("class", function(d) { return quantizeWPC(d.properties.wpc); });
     })
 }
 
@@ -146,7 +174,7 @@ function Paper(){
                 .duration(500)		
                 .style("opacity", 0);	
         })     
-        .attr("class", function(d) { return quantizePercentages(d.properties.paper); });
+        .attr("class", function(d) { return quantizePaper(d.properties.paper); });
     })
 }
 
@@ -181,7 +209,7 @@ function Plastic(){
                 .duration(500)		
                 .style("opacity", 0);	
         })     
-        .attr("class", function(d) { return quantizePercentages(d.properties.plastic); });
+        .attr("class", function(d) { return quantizePlastic(d.properties.plastic); });
     })
 }
 
@@ -216,7 +244,7 @@ function Glass(){
                 .duration(500)		
                 .style("opacity", 0);	
         })     
-        .attr("class", function(d) { return quantizePercentages(d.properties.glass); });
+        .attr("class", function(d) { return quantizeGlass(d.properties.glass); });
     })
 }
 
@@ -251,7 +279,7 @@ function Metal(){
                 .duration(500)		
                 .style("opacity", 0);	
         })     
-        .attr("class", function(d) { return quantizePercentages(d.properties.metal); });
+        .attr("class", function(d) { return quantizeMetal(d.properties.metal); });
     })
 }
 
@@ -286,6 +314,6 @@ function Other(){
                 .duration(500)		
                 .style("opacity", 0);	
         })     
-        .attr("class", function(d) { return quantizePercentages(d.properties.other); });
+        .attr("class", function(d) { return quantizeOther(d.properties.other); });
     })
 }
