@@ -55,15 +55,15 @@ div.tooltip {
     background-position:0 0, 30px 30px
 }
     
-.q0-9 { fill:rgb(247,251,255); }
-.q1-9 { fill:rgb(222,235,247); }
-.q2-9 { fill:rgb(198,219,239); }
-.q3-9 { fill:rgb(158,202,225); }
-.q4-9 { fill:rgb(107,174,214); }
-.q5-9 { fill:rgb(66,146,198); }
-.q6-9 { fill:rgb(33,113,181); }
-.q7-9 { fill:rgb(8,81,156); }
-.q8-9 { fill:rgb(8,48,107); }
+.q0-9 { fill:#F7FBFF; }
+.q1-9 { fill:#DEEBF7; }
+.q2-9 { fill:#C6DBEF; }
+.q3-9 { fill:#9ECAE1; }
+.q4-9 { fill:#6BAED6; }
+.q5-9 { fill:#4292C6; }
+.q6-9 { fill:#2171B5; }
+.q7-9 { fill:#08519C; }
+.q8-9 { fill:#08306B; }
 
 .o0-9 { fill:#f7fcf5; }
 .o1-9 { fill:#e5f5e0; }
