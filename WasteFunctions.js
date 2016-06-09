@@ -36,7 +36,7 @@ var quantizeOther = d3.scale.quantize()
 function Waste(){
     svg.selectAll("g.legend").remove();
     d3.selectAll("path").remove();
-    d3.select("body").transition();
+    d3.select("svg").transition().duration(750);
     
     // legend
     var color_domain = [22500, 45000, 67500, 90000, 112500, 135000, 157500, 180000] // to corrolate with the 
@@ -45,7 +45,7 @@ function Waste(){
 
     var color = d3.scale.threshold()
         .domain(color_domain)
-        .range(["#F7FBFF","#DEEBF7","#C6DBEF", "#9ECAE1", "#6BAED6", "#4292C6", "#2171B5", "#08519C", "#08306B"]);
+        .range(["#fff7ec","#fee8c8","#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f", "#b30000", "#7f0000"]);
 
     var legend = svg.selectAll("g.legend")
         .data(ext_color_domain)
@@ -114,7 +114,7 @@ function Waste(){
 function WPC(){
     svg.selectAll("g.legend").remove();
     d3.selectAll("path").remove();
-    d3.select("body").transition();
+    d3.select("svg").transition().duration(750);
     
     // legend FOR WASTE
     var color_domain = [.4, .8, 1.2, 1.6, 2.0, 2.4, 2.8, 3.2]
@@ -123,7 +123,7 @@ function WPC(){
 
     var color = d3.scale.threshold()
         .domain(color_domain)
-        .range(["#F7FBFF","#DEEBF7","#C6DBEF", "#9ECAE1", "#6BAED6", "#4292C6", "#2171B5", "#08519C", "#08306B"]);
+        .range(["#fff7ec","#fee8c8","#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f", "#b30000", "#7f0000"]);
 
     var legend = svg.selectAll("g.legend")
         .data(ext_color_domain)
@@ -340,7 +340,7 @@ function Plastic(){
     
      var color = d3.scale.threshold()
         .domain(color_domain)
-        .range(["#F7FBFF","#DEEBF7","#C6DBEF", "#9ECAE1", "#6BAED6", "#4292C6", "#2171B5", "#08519C", "#08306B"]);
+        .range(["#fff7f3","#fde0dd","#fcc5c0", "#fa9fb5", "#f768a1", "#dd3497", "#ae017e", "#7a0177", "#49006a"]);
 
     var legend = svg.selectAll("g.legend")
         .data(ext_color_domain)
@@ -485,7 +485,7 @@ function Metal(){
 
     var color = d3.scale.threshold()
         .domain(color_domain)
-        .range(["#F7FBFF","#DEEBF7","#C6DBEF", "#9ECAE1", "#6BAED6", "#4292C6", "#2171B5", "#08519C", "#08306B"]);
+        .range(["#ffffff","#f0f0f0","#d9d9d9", "#bdbdbd", "#969696", "#737373", "#525252", "#252525", "#000000"]);
 
     var legend = svg.selectAll("g.legend")
         .data(ext_color_domain)
@@ -558,7 +558,7 @@ function Other(){
 
     var color = d3.scale.threshold()
         .domain(color_domain)
-        .range(["#F7FBFF","#DEEBF7","#C6DBEF", "#9ECAE1", "#6BAED6", "#4292C6", "#2171B5", "#08519C", "#08306B"]);
+        .range(["#ffffe5","#fff7bc","#fee391", "#fec44f", "#fe9929", "#ec7014", "#cc4c02", "#993404", "#662506"]);
 
     var legend = svg.selectAll("g.legend")
         .data(ext_color_domain)
