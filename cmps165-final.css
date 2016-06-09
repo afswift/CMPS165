@@ -1,5 +1,7 @@
-body {
+html, body {
     background-color: #ffffff;
+	padding:0px;
+	margin:0px;
 }
 	
 .country {
@@ -144,3 +146,23 @@ td    {padding: 0px;}
 		background-color:black;
 		float:right;
 	}
+
+
+header, .full-width {
+  width: 100%;
+	margin:0;
+	margin-bottom: 50px;
+  background: #ccc;
+	  padding: 0.25em 0.625em;
+
+}
+.wrap {
+  width: 80%;
+  max-width: 24em;
+  margin: 0 auto;
+  padding: 0.25em 0.625em;
+	text-align:center; 
+	font-size: 48px;
+	color:steelblue; 
+	font-family:verdana; 
+}

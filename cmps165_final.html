@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <title>Global Waste</title>
+
+<h3 class="full-width">
+  <div class="wrap">Global Waste 2012</div>
+</h3>
+
+    
 <link rel="stylesheet" type="text/css" href="cmps165-final.css">
 <body>
-<h1 style = "text-align:center; color:steelblue; font-family:verdana ">
-<bold> Global Waste </bold>
-</h1>
-    
+
 
     
     
@@ -21,14 +24,14 @@
 		<div id="area1" style="float:right;"></div> </td>
 	  <td style="float:left;">
 		    <ul style="list-style:none; float:left;position:relative; top:-2px ; left:-41px;">
-       <li><button class="StatButton" onclick="Waste();">Waste</button></li>
+       <li><button class="StatButton" onclick="Waste();" style="border-top:none">Waste</button></li>
 	   <li><button class="StatButton" onclick="WPC();">Waste Per Capita</button></li>
 	   <li><button class="StatButton" onclick="Organic();">Organic</button></li>
        <li><button class="StatButton" onclick="Paper();">Paper</button></li>
        <li><button class="StatButton" onclick="Plastic();">Plastic</button></li>
 	   <li><button class="StatButton" onclick="Glass();">Glass</button></li>
 	   <li><button class="StatButton" onclick="Metal();">Metal</button></li>
-       <li><button class="StatButton" onclick="Other();">Other</button></li>
+       <li><button class="StatButton" onclick="Other();" style="border-bottom:none;">Other</button></li>
 </ul>
 	
 		</td>
@@ -107,29 +110,29 @@ g.append("rect")
 
 window.onload = Waste;    
 </script>
-	</center>
-	<p style="font-family: Helvetica, sans-serif;margin-left: 10%; margin-right: 10%">It can be assumed that developed countries that are industrializing, industrialized, or post-industrial, might have some pattern of waste consumption; the richer countries consume more than the poorer countries that don't consume as much, or cannot afford to be wasteful. However that is not always the case, as certain countries are known to produce more certain kinds of wastes than others. This map is to show that any waste can be produced by anyone, and can give insight on how each country functions according to the waste it produces.
+	
+	<p style=";margin-left: 10%; width: 1100px; ">It can be assumed that developed countries that are industrializing, industrialized, or post-industrial, might have some pattern of waste consumption; the richer countries consume more than the poorer countries that don't consume as much, or cannot afford to be wasteful. However that is not always the case, as certain countries are known to produce more certain kinds of wastes than others. This map is to show that any waste can be produced by anyone, and can give insight on how each country functions according to the waste it produces.
     <br><br></p>
     
-	<h4>Created for CMPS 165: Data Programming for Visualization, Spring 2016</h4>
-    <h4>Created By:</h4>    
-    <ul>
+	<h4 style=";margin-left: 10%; margin-right: 10%">Created for CMPS 165: Data Programming for Visualization, Spring 2016</h4>
+    <h4 style=";margin-left: 10%; margin-right: 10%">Created By:</h4>    
+    <ul style=";margin-left: 10%; margin-right: 10%"> 
       <li>Alexander Swift</li>
       <li>Aramis Marden</li>
       <li>Chloe Jiang</li>
       <li>Zach Holbrook</li>
     </ul>
 	
-    <h4>In collaboration with Suresh K. Lodha, and V Karthik Thota </h4>    
+    <h4 style="margin-left: 10%;">In collaboration with Suresh K. Lodha, and V Karthik Thota </h4>    
     
-	<h4>Data Sources:</h4>
-	<ul>
+	<h4 style=";margin-left: 10%; margin-right: 10%">Data Sources:</h4>
+	<ul style=";margin-left: 10%; margin-right: 10%">
         <li><a href="https://github.com/afswift/CMPS165" target = "_blank">My Github</a></li>
 		<li><a href="http://siteresources.worldbank.org/INTURBANDEVELOPMENT/Resources/336387-1334852610766/What_a_Waste2012_Final.pdf" target = "_blank">World Waste Statistics 2012</a></li>
 	</ul>
 
-    <h4>Code Sources:</h4>
-	<ul>
+    <h4 style=";margin-left: 10%; margin-right: 10%">Code Sources:</h4>
+	<ul style=";margin-left: 10%; margin-right: 10%">
         <li><a href="http://bl.ocks.org/rveciana/f46df2272b289a9ce4e7" target = "_blank"> World JSON map</a></li>
 		<li><a href="https://github.com/ryanbrounley/LAvsSF" target = "_blank"> Ryan Brounley's LAvsSF GitHub</a></li>
 		<li><a href="http://http://colorbrewer2.org/" target = "_blank"> Cynthia Brewer's Colorbrewer</a></li>
