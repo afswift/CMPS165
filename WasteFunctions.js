@@ -3,11 +3,11 @@ var ls_w = 20,
 
 var quantizeWaste = d3.scale.quantize()
     .domain([0, 180000])
-    .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+    .range(d3.range(9).map(function(i) { return "r" + i + "-9"; }));
 
 var quantizeWPC = d3.scale.quantize()
     .domain([0, 3.2])
-    .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+    .range(d3.range(9).map(function(i) { return "r" + i + "-9"; }));
     
 var quantizeOrganic = d3.scale.quantize()
         .domain([0, 80])
@@ -19,7 +19,7 @@ var quantizePaper = d3.scale.quantize()
 
 var quantizePlastic = d3.scale.quantize()
         .domain([0, 18])
-        .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+        .range(d3.range(9).map(function(i) { return "p" + i + "-9"; }));
 
 var quantizeGlass = d3.scale.quantize()
         .domain([0, 12])
@@ -27,11 +27,11 @@ var quantizeGlass = d3.scale.quantize()
 
 var quantizeMetal = d3.scale.quantize()
         .domain([0, 8])
-        .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+        .range(d3.range(9).map(function(i) { return "m" + i + "-9"; }));
 
 var quantizeOther = d3.scale.quantize()
         .domain([0, 56])
-        .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+        .range(d3.range(9).map(function(i) { return "b" + i + "-9"; }));
 
 function Waste(){
     svg.selectAll("g.legend").remove();
@@ -541,7 +541,7 @@ function Metal(){
                 .style("opacity", 0);	
         })     
         .attr("class", function(d) {
-            if (d.properties.metal == undefined || d.properties.metal == null) { return "grey" }
+            if (d.properties.metal == undefined || d.properties.metal == null) { return "r7-9" }
             return quantizeMetal(d.properties.metal); });
     })
 }

@@ -44,6 +44,14 @@ div.tooltip {
 }
 
 .grey { fill:rgb(160,160,160); }
+
+.check {
+    background-color: #eee;
+    background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), 
+    linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
+    background-size:60px 60px;
+    background-position:0 0, 30px 30px
+}
     
 .q0-9 { fill:rgb(247,251,255); }
 .q1-9 { fill:rgb(222,235,247); }
@@ -64,6 +72,47 @@ div.tooltip {
 .o6-9 { fill:#238b45; }
 .o7-9 { fill:#006d2c; }
 .o8-9 { fill:#00441b; }
+
+.m0-9 { fill:#ffffff; }
+.m1-9 { fill:#f0f0f0; }
+.m2-9 { fill:#d9d9d9; }
+.m3-9 { fill:#bdbdbd; }
+.m4-9 { fill:#969696; }
+.m5-9 { fill:#737373; }
+.m6-9 { fill:#525252; }
+.m7-9 { fill:#252525; }
+.m8-9 { fill:#000000; }
+
+.r0-9 { fill:#fff7ec; }
+.r1-9 { fill:#fee8c8; }
+.r2-9 { fill:#fdd49e; }
+.r3-9 { fill:#fdbb84; }
+.r4-9 { fill:#fc8d59; }
+.r5-9 { fill:#ef6548; }
+.r6-9 { fill:#d7301f; }
+.r7-9 { fill:#b30000; }
+.r8-9 { fill:#7f0000; }
+
+.b0-9 { fill:#ffffe5; }
+.b1-9 { fill:#fff7bc; }
+.b2-9 { fill:#fee391; }
+.b3-9 { fill:#fec44f; }
+.b4-9 { fill:#fe9929; }
+.b5-9 { fill:#ec7014; }
+.b6-9 { fill:#cc4c02; }
+.b7-9 { fill:#993404; }
+.b8-9 { fill:#662506; }
+
+.p0-9 { fill:#fff7f3; }
+.p1-9 { fill:#fde0dd; }
+.p2-9 { fill:#fcc5c0; }
+.p3-9 { fill:#fa9fb5; }
+.p4-9 { fill:#f768a1; }
+.p5-9 { fill:#dd3497; }
+.p6-9 { fill:#ae017e; }
+.p7-9 { fill:#7a0177; }
+.p8-9 { fill:#49006a; }
+
 
 .StatButton {
 	height: auto;
