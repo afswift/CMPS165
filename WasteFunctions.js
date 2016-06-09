@@ -485,7 +485,7 @@ function Metal(){
 
     var color = d3.scale.threshold()
         .domain(color_domain)
-        .range(["#ffffff","#f0f0f0","#d9d9d9", "#bdbdbd", "#969696", "#737373", "#525252", "#252525", "#000000"]);
+        .range(['#fff7fb','#ece2f0','#d0d1e6','#a6bddb','#67a9cf','#3690c0','#02818a','#016c59','#014636']);
 
     var legend = svg.selectAll("g.legend")
         .data(ext_color_domain)
@@ -541,7 +541,7 @@ function Metal(){
                 .style("opacity", 0);	
         })     
         .attr("class", function(d) {
-            if (d.properties.metal == undefined || d.properties.metal == null) { return "r7-9" }
+            if (d.properties.metal == undefined || d.properties.metal == null) { return "grey" }
             return quantizeMetal(d.properties.metal); });
     })
 }
