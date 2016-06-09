@@ -4,68 +4,17 @@
 <link rel="stylesheet" type="text/css" href="cmps165-final.css">
 <body>
 <h1 style = "text-align:center; color:steelblue; font-family:verdana ">
-<bold> Global Waste </bold></h1>
-<!--- <h4 style = "text-align: center; font-family: verdana">Based on Statistics from the World Bank's
-<br><i>WHAT A WASTE; A Global Review of Solid Waste Management</i>
-<br>written in 2012 
-</h4> --->
-    
-
-<select id="myList">
-  <option value="waste">Waste</option>
-  <option value="wpc">Waste Per Capita</option>
-  <option value="organic">Organic</option>  
-  <option value="paper">Paper</option>
-  <option value="plastic">Plastic</option>
-  <option value="glass">Glass</option>  
-  <option value="metal">Metal</option>
-  <option value="other">Other</option>
-</select>
-    
+<bold> Global Waste </bold>
+</h1>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script src="WasteFunctions.js"></script> 
 <script src="d3-zoom-pan-extent.js"></script>
-<div id="area1"></div>
+<center><div id="area1"></div></center>
 <div id="area2"></div>
-    
+    <center>
 <script>
-    
-    
-document.getElementById("myList").onchange = function() {
-   var sheet=document.getElementById("myList").value;
-
-   if(sheet=="waste"){
-    Waste();
-   }
-   else if(sheet=="wpc"){
-    WPC();
-   }
-   else if(sheet=="organic"){
-    Organic();
-   }
-   else if(sheet=="paper"){
-    Paper();
-   }
-   else if(sheet=="plastic"){
-    Plastic();
-   }
-   else if(sheet=="glass"){
-    Glass();
-   }
-   else if(sheet=="metal"){
-    Metal();
-   }
-   else if(sheet=="other"){
-    Other();
-   }
-   return false
-};
-    
-    
-    
-    
 var width = 960,
     height = 504;
     
@@ -138,9 +87,7 @@ g.append("rect")
 
 window.onload = Waste;    
 </script>
-    
-
-	
+	</center>
 	<p style="width: 1160px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eros nibh, tincidunt id dolor ut, pulvinar suscipit augue. Nulla finibus facilisis sem efficitur gravida. Nulla lorem neque, finibus vitae magna in, blandit scelerisque erat. In hac habitasse platea dictumst. Ut pretium, libero eu rutrum vulputate, orci elit vulputate diam, a placerat ipsum libero ut quam. Nullam eget laoreet velit. Cras ullamcorper erat id odio dictum elementum. Nam rhoncus mauris at vehicula ornare. Aliquam ac nunc tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean facilisis purus ligula, vitae vulputate nisl dapibus ac. Nulla at ultricies urna. Phasellus tortor risus, tristique non scelerisque volutpat, luctus vel metus. Nulla ante ante, sollicitudin in sem eget, semper dapibus leo. In euismod, diam nec convallis consectetur, ex elit accumsan odio, in consequat nisl mauris eu lorem. Quisque purus dui, elementum rutrum efficitur ut, sodales sed massa. </p>
 	
 	<h4>Created for CMPS 165: Data Programming for Visualization, Spring 2016</h4>
@@ -164,15 +111,10 @@ window.onload = Waste;
 	<ul>
         <li><a href="http://bl.ocks.org/rveciana/f46df2272b289a9ce4e7" target = "_blank"> World JSON map</a></li>
 		<li><a href="https://github.com/ryanbrounley/LAvsSF" target = "_blank"> Ryan Brounley's LAvsSF GitHub</a></li>
-        <li><a href = "https://bl.ocks.org/mbostock/4060606" target = "_blank"> Choropleth demo by Mike Bostock</a></li>
 	</ul>
-    
-    <!--- <h4>Other Material:</h4>
-    <ul>
-        <li><a href = "http://colorbrewer2.org/" target = "_blank" >Cynthia Brewer's Color Brewer: Color advice for Cartography</a></li>
-    </ul> --->
 	
-        <ul style="position: relative; left: 920px; top: -1052px;list-style-type: none;" >
+	<center>
+	<ul style="position: relative; left: 560px; top: -1052px;list-style-type: none;" >
        <li><button id="Waste"      class="StatButton" onclick="Waste();">Waste</button></li>
 	   <li><button id="WPC"        class="StatButton" onclick="WPC();">Waste Per Capita</button></li>
 	   <li><button id="Organic"    class="StatButton" onclick="Organic();">Organic</button></li>
@@ -182,3 +124,4 @@ window.onload = Waste;
 	   <li><button id="Metal"      class="StatButton" onclick="Metal();">Metal</button></li>
        <li><button id="Other"      class="StatButton" onclick="Other();">Other</button></li>
 	</ul>
+	</center>
