@@ -115,9 +115,8 @@ div.tooltip {
 
 
 .StatButton {
-	height: auto;
-	width: 150px;
-	height: 60px;
+	height: 63px;
+	width: 200px;
 	background: #dddddd;
 	border:1px solid #000000;
     /*border-left-style: none;
@@ -127,8 +126,6 @@ div.tooltip {
 	color:#000000;
 	font-family:arial;
 	font-size:15px;
-	padding:7px 19px;
-
 }
 
 .StatButton:hover {
@@ -137,7 +134,7 @@ div.tooltip {
 }
 
 	area1 {	
-		float:left;
+		float:right;
 	}
 
 	area2 {
