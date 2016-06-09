@@ -119,8 +119,8 @@ div.tooltip {
 	width: 200px;
 	background: #dddddd;
 	border:1px solid #000000;
-    /*border-left-style: none;
-	border-right-style: none;*/
+    border-left-style: none;
+	border-right-style: none;
 	display:inline-block;
 	cursor:pointer;
 	color:#000000;
@@ -132,6 +132,9 @@ div.tooltip {
   background: #f8f8f8;
   text-decoration: none;
 }
+
+table {border-collapse: collapse;}
+td    {padding: 0px;}
 
 	area1 {	
 		float:right;
